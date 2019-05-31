@@ -27,7 +27,7 @@ class RippleBoxGraphics extends JComponent implements MouseMotionListener {
 
     for(int i=0; i < N; i++) {
       for(int j=0; j < N; j++) {
-
+        
         ((Graphics2D)g).setColor(
           new Color(
             (float)Math.sqrt(Math.min((float)0.99f, Math.max(0.01f,0.25f*(float)rbd.values[N*i+j]))),
