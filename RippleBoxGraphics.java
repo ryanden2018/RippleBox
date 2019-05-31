@@ -35,7 +35,7 @@ class RippleBoxGraphics extends JComponent implements MouseMotionListener {
   double[] vals() {
     double[] result = new double[N*N];
     for(int i=0; i<N*N; i++) {
-      result[i] =255*Math.min(0.99,Math.max(0.01,rbd.values[i]-0.5));
+      result[i] =255*Math.min(0.99,Math.max(0.01,rbd.values[i]));
     }
     return result;
   }
