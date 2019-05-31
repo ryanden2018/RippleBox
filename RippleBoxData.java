@@ -17,6 +17,8 @@ class RippleBoxData {
     this.width = width;
     this.N = N;
     this.c = 0;
+    this.cursorX = (int)(width/2);
+    this.cursorY = (int)(width/2);
     values = new double[N*N];
     Dvalues = new double[N*N];
     Mat = new double[N*N];
