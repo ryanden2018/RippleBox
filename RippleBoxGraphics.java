@@ -28,6 +28,19 @@ class RippleBoxGraphics extends JComponent implements MouseMotionListener {
     for(int i=0; i < N; i++) {
       for(int j=0; j < N; j++) {
 
+        ((Graphics2D)g).setColor(
+          new Color(
+            Math.min((float)0.99f, Math.max(0.01f,(float)rbd.values[N*i+j])),
+            Math.min((float)0.99f, Math.max(0.01f,(float)rbd.values[N*i+j])),
+            Math.min((float)0.99f, Math.max(0.01f,(float)rbd.values[N*i+j]))
+          )
+        );
+
+        int[] xVals = { 2*j, 2*(j+1), 2*(j+1), 2*j };
+        int[] yVals = { 2*i, 2*i, 2*(i+1), 2*(i+1) };
+
+        g.fillPolygon(xVals,yVals,4);
+
         // double midptX = ( (gwd.masses[N*i+j].posX+gwd.masses[N*(i+1)+(j+1)].posX)/2 );
         // double midptY = ( (gwd.masses[N*i+j].posY+gwd.masses[N*(i+1)+(j+1)].posY)/2 );
 
@@ -54,11 +67,6 @@ class RippleBoxGraphics extends JComponent implements MouseMotionListener {
   // int[] castToInt(double[] vals) {
   //   int[] result = {(int) vals[0], (int) vals[1], (int) vals[2]};
   //   return result;
-  // }
-
-  // float makeColor(double[] xVals,double[] yVals) {
-  //   float val = Math.min((float)0.99, (float)Math.pow(triangleArea(xVals,yVals)*(float)(3.0/Math.pow(WIDTH/(N-1),2)),4));
-  //   return val;
   // }
 
 

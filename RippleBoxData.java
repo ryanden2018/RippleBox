@@ -57,7 +57,7 @@ class RippleBoxData {
             - dt*0.01*Dvalues[idx(i,j)];
           BMat[idx(i,j)] = Mat[idx(i,j)];
           BMat2[idx(i,j)] = Mat2[idx(i,j)];
-          Dimage[idx(i,j)] = Mat2[idx(i,j)];
+          Dvalues[idx(i,j)] = Mat2[idx(i,j)];
         }
       }
     }
@@ -66,7 +66,7 @@ class RippleBoxData {
       for(int i=1; i<N-1; i++) {
         for(int j=1; j<N-1; j++) {
           BMat[idx(i,j)] = Mat2[idx(i,j)]*dt;
-          BMat2[idx(i,j)] = dt*2*(Mat[idx(i-1,j)+Mat[idx(i+1,j)]+Mat[idx(i,j-1)]+Mat[idx(i,j+1)]-4*Mat[idx(i,j)]);
+          BMat2[idx(i,j)] = dt*2*(Mat[idx(i-1,j)]+Mat[idx(i+1,j)]+Mat[idx(i,j-1)]+Mat[idx(i,j+1)]-4*Mat[idx(i,j)]);
           values[idx(i,j)] += BMat[idx(i,j)];
           Dvalues[idx(i,j)] += BMat2[idx(i,j)];
         }
@@ -91,7 +91,7 @@ class RippleBoxData {
       for(int i=1; i<N-1; i++) {
         for(int j=1; j<N-1; j++) {
           Mat[idx(i,j)] = BMat2[idx(i,j)]*dt;
-          Mat2[idx(i,j)] = dt*2*(BMat[idx(i-1,j)+BMat[idx(i+1,j)]+BMat[idx(i,j-1)]+BMat[idx(i,j+1)]-4*BMat[idx(i,j)]);
+          Mat2[idx(i,j)] = dt*2*(BMat[idx(i-1,j)]+BMat[idx(i+1,j)]+BMat[idx(i,j-1)]+BMat[idx(i,j+1)]-4*BMat[idx(i,j)]);
           values[idx(i,j)] += Mat[idx(i,j)];
           Dvalues[idx(i,j)] += Mat2[idx(i,j)];
         }
