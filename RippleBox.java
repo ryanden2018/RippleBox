@@ -17,7 +17,7 @@ class RippleBox implements ActionListener {
     jfrm.setResizable(false);
     jfrm.setVisible(true);
 
-    int delay = 50;
+    int delay = 200;
     Timer timer = new Timer(delay,this);
     while(true) {
       timer.start();

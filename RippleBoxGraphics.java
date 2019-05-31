@@ -24,24 +24,20 @@ class RippleBoxGraphics extends JComponent implements MouseMotionListener {
       rbd.update();
     }
 
-
-    for(int i=0; i < N/2; i++) {
-      for(int j=0; j < N/2; j++) {
-        
-        ((Graphics2D)g).setColor(
-          new Color(
-            (float)Math.sqrt(Math.min((float)0.99f, Math.max(0.01f,0.25f*(float)rbd.values[N*2*i+2*j]))),
-            (float)Math.sqrt(Math.min((float)0.99f, Math.max(0.01f,0.25f*(float)rbd.values[N*2*i+2*j]))),
-            (float)Math.sqrt(Math.min((float)0.99f, Math.max(0.01f,0.25f*(float)rbd.values[N*2*i+2*j])))
-          )
-        );
-
-        int[] xVals = { 2*2*j, 2*2*(j+1), 2*2*(j+1), 2*2*j };
-        int[] yVals = { 2*2*i, 2*2*i, 2*2*(i+1), 2*2*(i+1) };
-
-        g.fillPolygon(xVals,yVals,4);
+    for(int i=0; i < N; i++) {
+        for(int j=0; j < N; j++) {
+          
+          ((Graphics2D)g).setColor(
+            new Color(
+              (float)Math.sqrt(Math.min((float)0.99f, Math.max(0.01f,0.25f*(float)rbd.values[N*i+j]))),
+              (float)Math.sqrt(Math.min((float)0.99f, Math.max(0.01f,0.25f*(float)rbd.values[N*i+j]))),
+              (float)Math.sqrt(Math.min((float)0.99f, Math.max(0.01f,0.25f*(float)rbd.values[N*i+j])))
+            )
+          );
+  
+          g.fillRect(2*j,2*i,2,2);
+        }
       }
-    }
   }
 
 
