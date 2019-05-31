@@ -55,7 +55,7 @@ class RippleBoxData {
         } else {
           Mat[idx(i,j)] = values[idx(i,j)];
           Mat2[idx(i,j)] = Dvalues[idx(i,j)]
-            + 10*dt*(Math.sin(c/10))*Math.exp((-80)*(Math.pow(2*i-cursorY,2)/(50*50)+Math.pow(2*j-cursorX,2)/(50*50))) 
+            + dt*(Math.sin(c/20))*Math.exp((-10)*(Math.pow(i-cursorY,2)/(50*50)+Math.pow(j-cursorX,2)/(50*50))) 
             - dt*0.01*Dvalues[idx(i,j)];
           BMat[idx(i,j)] = Mat[idx(i,j)];
           BMat2[idx(i,j)] = Mat2[idx(i,j)];
